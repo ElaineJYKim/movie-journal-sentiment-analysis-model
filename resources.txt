@@ -1,0 +1,6 @@
+https://mc.ai/a-guide-to-simple-text-classification-with-bert/
+https://towardsdatascience.com/multi-class-sentiment-analysis-using-bert-86657a2af156
+
+
+Data
+https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews
