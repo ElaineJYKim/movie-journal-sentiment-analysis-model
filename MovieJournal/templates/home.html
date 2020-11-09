@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block content %}
+     {% for movie in movies %}
+        <h3>{{ movie.title }}</h3>
+        <p>{{ movie.year }}</p>
+        <p> Director - {{ movie.director }}</p>
+        <p> Sentiment - {{ movie.sentiment }}</p>
+     {% endfor %}
+{% endblock content %}

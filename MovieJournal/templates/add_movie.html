@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div>
+        <form action="#" method="POST" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4"> Add New Movie </legend>
+                <div class="form-row">
+
+                    <div class="form-group col-md-8">
+                        {{ form.title.label(class="form-control-label") }}
+                        {{ form.title(class="form-control", placeholder="Into the Wild")}}
+                    </div>
+                    <div class="form-group col-md-4">
+                        {{ form.year.label(class="form-control-label") }}
+                        {{ form.year(class="form-control", placeholder="2007")}}
+                    </div>
+
+                </div>
+                <div class="form-group">
+                    {{ form.director.label(class="form-control-label") }}
+                    {{ form.director(class="form-control", placeholder="Sean Penn")}}
+                </div>
+                <div class="form-group">
+                    {{ form.cover.label(class="form-control-label") }}
+                    {{ form.cover(class="btn btn-outline-info")}}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+
+        </form>          
+    </div>
+{% endblock content %}
+
+<!-- <div class="form-row">
+              <div class="form-group col-md-8">
+                <label for="movieTitle">Movie Title</label>
+                <input type="text" class="form-control" id="movie_title", placeholder="Into the Wild">
+              </div>
+              <div class="form-group col-md-4">
+                <label for="releaseYear">Release Year</label>
+                <input type="number" class="form-control" id="release_year", placeholder="2007">
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="director">Director</label>
+                <input type="text" class="form-control" id="director_name" placeholder="Sean Penn">
+            </div>
+            <div class="form-group">
+                <label for="movieCover">Upload Movie Cover</label>
+                <input type="file" class="btn btn-link" id="movie_cover" accept="image/*">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Movie</button> -->
