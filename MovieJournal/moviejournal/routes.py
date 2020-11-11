@@ -1,10 +1,12 @@
 from flask import render_template, url_for, request, redirect, flash
-from moviejournal import app
+from moviejournal import app, db, model, tokenizer
 from moviejournal.forms import MovieForm, JournalEntryForm
 from moviejournal.models import MovieJournals, JournalEntry
-from moviejournal import db
 import os
 
+import tensorflow as tf
+from tensorflow import keras
+import numpy as np
 
 @app.route('/')
 @app.route('/home')
@@ -36,11 +38,22 @@ def journal(movie_id):
     entries = MovieJournals.query.get(movie_id).entries
 
     if form.validate_on_submit():
-        sentiment = 1 # CALL THE MODEL HERE!!!
+        entry = form.entry.data
+        sentiment =  model_predict(entry) # CALL THE MODEL HERE!!!
         
-        entry = JournalEntry(entry=form.entry.data, sentiment=sentiment, journal_id=movie_id)
+        entry = JournalEntry(entry=entry, sentiment=sentiment, journal_id=movie_id)
         db.session.add(entry)
         db.session.commit()
         return redirect(url_for("journal", movie_id=movie_id))
 
     return render_template('journal.html', movie=movie, entries=entries, form=form)
+
+def model_predict(entry):
+
+    # make prediction here
+        
+    return 1
+
+@app.route('/tester')
+def tester():
+    return "hello"
