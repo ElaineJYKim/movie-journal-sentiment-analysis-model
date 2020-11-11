@@ -48,11 +48,19 @@ def journal(movie_id):
 
     return render_template('journal.html', movie=movie, entries=entries, form=form)
 
-def model_predict(entry):
+def model_predict(text):
 
-    # make prediction here
-        
-    return 1
+    text = [text]
+
+    pred_tokens = map(tokenizer.tokenize, text)
+    pred_tokens = map(lambda tok: ["[CLS]"] + tok + ["[SEP]"], pred_tokens)
+    pred_token_ids = list(map(tokenizer.convert_tokens_to_ids, pred_tokens))
+    
+    pred_token_ids = map(lambda tids: tids +[0]*(app.config['MAX_SEQ_LEN']-len(tids)),pred_token_ids)
+    pred_token_ids = np.array(list(pred_token_ids))
+
+    prediction = model.predict(pred_token_ids).argmax(axis=-1)[0]
+    return prediction
 
 @app.route('/tester')
 def tester():

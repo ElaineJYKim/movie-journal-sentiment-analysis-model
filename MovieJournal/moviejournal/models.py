@@ -22,7 +22,7 @@ class JournalEntry(db.Model):
     __tablename__ = 'entries'
     id = db.Column(db.Integer, primary_key=True)
     entry = db.Column(db.String(78), nullable=False)
-    sentiment = db.Column(db.Integer, nullable=True)
+    sentiment = db.Column(db.Integer, nullable=False)
     time = db.Column(db.DateTime, nullable=False, default=datetime.now)
     journal_id = db.Column(db.Integer, db.ForeignKey('journal.id'), nullable=False)
 
