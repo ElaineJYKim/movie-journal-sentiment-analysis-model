@@ -60,7 +60,7 @@ def model_predict(text):
     pred_token_ids = np.array(list(pred_token_ids))
 
     prediction = model.predict(pred_token_ids).argmax(axis=-1)[0]
-    return prediction
+    return prediction.item()
 
 @app.route('/tester')
 def tester():
