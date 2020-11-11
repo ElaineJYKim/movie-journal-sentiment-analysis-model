@@ -1,11 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-     {% for movie in movies.query.all() %}
-        <h3>{{ movie.title }}</h3>
-        <p>{{ movie.year }}</p>
-        <p> Director - {{ movie.director }}</p>
-        {% endfor %}
-        {% endblock content %}
+      {% for movie in movies.query.all() %}
+         <div class="card"><a href="{{ url_for('journal', movie_id=movie.id )}}">
+            <h3>{{ movie.title }}</h3>
+            <p>{{ movie.year }}</p>
+            <p> Director - {{ movie.director }}</p>
+            <!-- <img src="{{ url_for('static', filename='uploads/'+movie.title) }}"> -->
+         </a></div>
+      {% endfor %}
+{% endblock content %}
 
-
-        <!-- <img src="{{ url_for('uploads', filename=movie.title) }}"> -->
+<!-- flask images/files: https://blog.miguelgrinberg.com/post/handling-file-uploads-with-flask -->
+<!-- <img src="{{ url_for('uploads', filename=movie.title) }}"> -->

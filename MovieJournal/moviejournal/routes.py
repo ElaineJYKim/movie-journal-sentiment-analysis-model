@@ -1,6 +1,6 @@
 from flask import render_template, url_for, request, redirect, flash
 from moviejournal import app
-from moviejournal.forms import MovieForm
+from moviejournal.forms import MovieForm, JournalEntryForm
 from moviejournal.models import MovieJournals, JournalEntry
 from moviejournal import db
 import os
@@ -16,7 +16,6 @@ def add_movie():
     form = MovieForm()
 
     if form.validate_on_submit():
-
         uploaded_file = request.files['cover']
         filename = form.title.data
         file_path = os.path.join(app.config['UPLOAD_PATH'], filename)
@@ -30,7 +29,18 @@ def add_movie():
     else:
         return render_template('add_movie.html', title="Add Movie", form=form)
 
-@app.route('/tester')
-def tester():
-    flash('IS HTRAT YOU', 'ssuccess')
-    return "hello world"
+@app.route('/journal/<int:movie_id>', methods=['POST', 'GET'])
+def journal(movie_id):
+    form = JournalEntryForm()
+    movie = MovieJournals.query.get(movie_id)
+    entries = MovieJournals.query.get(movie_id).entries
+
+    if form.validate_on_submit():
+        sentiment = 1 # CALL THE MODEL HERE!!!
+        
+        entry = JournalEntry(entry=form.entry.data, sentiment=sentiment, journal_id=movie_id)
+        db.session.add(entry)
+        db.session.commit()
+        return redirect(url_for("journal", movie_id=movie_id))
+
+    return render_template('journal.html', movie=movie, entries=entries, form=form)

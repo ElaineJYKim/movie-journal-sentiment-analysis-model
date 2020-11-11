@@ -1,9 +1,11 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
+from wtforms import StringField, SubmitField, IntegerField, TextAreaField
 from wtforms.validators import DataRequired, Length, NumberRange, ValidationError
 from flask_wtf.file import FileField
 from moviejournal.models import MovieJournals
 from datetime import datetime
+
+# MAX_SEQ_LEN = 78
 
 def validate_movie(form, field):
     titles = MovieJournals.query.with_entities(MovieJournals.title)
@@ -23,3 +25,7 @@ class MovieForm(FlaskForm):
     director = StringField('Director', validators=[DataRequired(), Length(min=2, max=20)])
     cover = FileField('Movie Cover')
     submit = SubmitField('Submit')
+
+class JournalEntryForm(FlaskForm):
+    entry = TextAreaField('Entry', validators=[DataRequired(), Length(min=1)])
+    submit = SubmitField('Upload Journal')
