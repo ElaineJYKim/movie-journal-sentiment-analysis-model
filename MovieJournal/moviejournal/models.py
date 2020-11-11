@@ -11,7 +11,7 @@ class MovieJournals(db.Model):
     director = db.Column(db.String(20), unique=False, nullable=False)
     cover_file = db.Column(db.String(20), unique=True, nullable=False)
     time = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    entries = db.relationship('JournalEntry', backref='movie', lazy=True)
+    entries = db.relationship('JournalEntry', backref='movie', order_by='JournalEntry.time.desc()', lazy=True)
 
     def __repr__(self):
         return "MovieJournals('{}', '{}', '{}', '{}')".format(self.title, self.year, self.director, self.cover_file)
