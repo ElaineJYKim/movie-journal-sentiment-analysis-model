@@ -16,7 +16,7 @@ class MovieJournals(db.Model):
     def __repr__(self):
         return "MovieJournals('{}', '{}', '{}', '{}')".format(self.title, self.year, self.director, self.cover_file)
 
-# entry maxed at 78 bc of model design - i was stupid
+# entry maxed at 100 bc of model design - i was stupid
 class JournalEntry(db.Model):
 
     __tablename__ = 'entries'

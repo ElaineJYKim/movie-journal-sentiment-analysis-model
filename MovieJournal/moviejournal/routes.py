@@ -78,7 +78,3 @@ def delete_journal(movie_id):
     db.session.commit()
 
     return render_template('home.html', movies=MovieJournals)
-
-@app.route('/tester')
-def tester():
-    return "hello"

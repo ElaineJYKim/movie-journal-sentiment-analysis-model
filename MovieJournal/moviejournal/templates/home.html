@@ -1,23 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
-<div class="container mt-5">
-   <h2 class="text-center">Journals</h2>
+<!-- <div class="container mt-5"> -->
+<div>
    
-   <nav class="nav nav-light bg-light">
+   <!-- <nav class="nav nav-light bg-light">
       <a class="navbar-brand">Navbar</a>
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       </form>
-    </nav>
+    </nav> -->
 
    <div class="movies_container">
       {% for movie in movies.query.order_by(movies.time.desc()).all() %}
-         <div class="card movie_card"><a href="{{ url_for('journal', movie_id=movie.id )}}">
+         <div class="card movie_card" id="bright"><a href="{{ url_for('journal', movie_id=movie.id )}}">
                 <img class="card-img-top" alt="..." src="{{ url_for('static', filename='uploads/'+movie.title) }}">
             <div class="card-body">
-                <h5 class="card-title">{{ movie.title }}</h5>
-                <p class="movie_info">{{ movie.year }}</p>
-                <p class="movie_info">{{ movie.director }}</p>
+                <h5 class="movie_card_title">{{ movie.title }}</h5>
+                <p class="movie_year">{{ movie.year }}, {{ movie.director }}</p>
             </div>
          </a></div>
       {% endfor %}

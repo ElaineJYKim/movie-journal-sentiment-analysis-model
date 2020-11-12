@@ -13,9 +13,10 @@ tokenizer = FullTokenizer(vocab_file="moviejournal/tf/vocab.txt")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '87b48b92060727ca03b6f30f3b340661'
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 app.config['UPLOAD_PATH'] = 'moviejournal/static/uploads'
-app.config['MAX_SEQ_LEN'] = 78 
+app.config['MAX_SEQ_LEN'] = 100 
 db = SQLAlchemy(app)
 
 from moviejournal import routes
