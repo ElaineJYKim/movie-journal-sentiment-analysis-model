@@ -7,7 +7,7 @@ MovieJournal - Flask app for running the Movie Journal application
 Final Model Used
 - Colab Notebook: Bert_Model/Finetuning_Notebooks/RottenTF.ipynb
 - Dataset: [Rotten Tomatos Movie Reviews](https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews/data)
-- Bert Based Model: uncased_L-12_H-768_A-12
+- Bert Based Model: cased_L-12_H-768_A-12
 
 
 ## MovieJournal
@@ -35,7 +35,7 @@ Final Model Used
 
 5) Inset Model.
 
-⋅⋅1. Download [Model](https://works.do/FXKHUP)
+⋅⋅1. Download [Model](https://works.do/xEAxdf)
 ..2. Move model directory into **tf** directory (filepath: MovieJournal/moviejournal/tf)
 
 6) Run the server.
