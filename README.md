@@ -57,6 +57,5 @@ To Delete all current movie and journal data.
 >>> exit()
 ```
 
-2)
-Delete all movie cover files from **uploads** directory (filepath: MovieJournal/moviejournal/static/uploads)
+2) Delete all movie cover files from **uploads** directory (filepath: MovieJournal/moviejournal/static/uploads)
 
