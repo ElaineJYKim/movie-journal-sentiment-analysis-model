@@ -62,6 +62,23 @@ def model_predict(text):
     prediction = model.predict(pred_token_ids).argmax(axis=-1)[0]
     return prediction.item()
 
+@app.route('/delete_journal/<int:movie_id>')
+def delete_journal(movie_id):
+    
+    if MovieJournals.query.get(movie_id).entries is not None:
+        entries = MovieJournals.query.get(movie_id).entries
+        
+        for entry in entries:
+            JournalEntry.query.filter_by(id=entry.id).delete()
+
+    movie = MovieJournals.query.filter_by(id=movie_id)
+    os.remove(movie.first().cover_file)
+    movie.delete()
+
+    db.session.commit()
+
+    return render_template('home.html', movies=MovieJournals)
+
 @app.route('/tester')
 def tester():
     return "hello"

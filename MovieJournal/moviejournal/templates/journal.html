@@ -1,18 +1,5 @@
 {% extends "layout.html" %}
 {% block content %}
-   
-    <!-- <h3>{{ movie.title }}</h3>
-    <p>{{ movie.year }}</p>
-    <p> Director - {{ movie.director }}</p> -->
-    <!-- <img src="{{ url_for('static', filename='uploads/'+movie.title) }}"> -->
-    <!-- <div class="card movie_card">
-        <img class="card-img-top" alt="..." src="{{ url_for('static', filename='uploads/'+movie.title) }}">
-            <div class="card-body">
-                <h5 class="card-title">{{ movie.title }}</h5>
-                <p class="movie_info">{{ movie.year }}</p>
-                <p class="movie_info">{{ movie.director }}</p>
-            </div>
-    </div> -->
     
     <div class="card mb-3" style="max-width: 540px;">
         <div class="row no-gutters">
@@ -30,14 +17,7 @@
         </div>
       </div>
 
-    <!-- <div class="card bg-dark text-white">
-        <img class="card-img journal-img" alt="..." src="{{ url_for('static', filename='uploads/'+movie.title) }}">
-        <div class="card-img-overlay">
-          <h5 class="card-title">{{ movie.title }}</h5>
-          <p class="card-text">{{ movie.year }}</p>
-          <p class="card-text">{{ movie.director }}</p>
-        </div>
-    </div> -->
+   <a href="{{ url_for('delete_journal', movie_id=movie.id )}}"><button type="button" class="btn btn-outline-danger btn-sm">Delete Journal</button></a>
     
     <form style="width: 100%;" action="#" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}

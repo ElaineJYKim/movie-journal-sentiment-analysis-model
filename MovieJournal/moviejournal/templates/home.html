@@ -2,8 +2,16 @@
 {% block content %}
 <div class="container mt-5">
    <h2 class="text-center">Journals</h2>
+   
+   <nav class="nav nav-light bg-light">
+      <a class="navbar-brand">Navbar</a>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      </form>
+    </nav>
+
    <div class="movies_container">
-      {% for movie in movies.query.all() %}
+      {% for movie in movies.query.order_by(movies.time.desc()).all() %}
          <div class="card movie_card"><a href="{{ url_for('journal', movie_id=movie.id )}}">
                 <img class="card-img-top" alt="..." src="{{ url_for('static', filename='uploads/'+movie.title) }}">
             <div class="card-body">
