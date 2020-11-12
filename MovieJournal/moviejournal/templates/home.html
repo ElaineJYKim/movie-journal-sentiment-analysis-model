@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="container mt-5">
-   <h2 class="text-center">Movie Journals</h2>
+   <h2 class="text-center">Journals</h2>
    <div class="movies_container">
       {% for movie in movies.query.all() %}
          <div class="card movie_card"><a href="{{ url_for('journal', movie_id=movie.id )}}">
