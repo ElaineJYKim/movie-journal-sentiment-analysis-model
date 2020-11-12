@@ -11,7 +11,8 @@ Final Model Used
 
 
 ## MovieJournal
-<b>Description<b><br/>
+**Description**
+
 - Create journals for different movies.
 - Write entries for each journal.
 - Have your journal entries be classified by sentiment (Negative, Neutral, Positive).
