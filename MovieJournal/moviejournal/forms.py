@@ -28,4 +28,4 @@ class MovieForm(FlaskForm):
 
 class JournalEntryForm(FlaskForm):
     entry = TextAreaField('Entry', validators=[DataRequired(), Length(min=1)])
-    submit = SubmitField('Upload Journal')
+    submit = SubmitField('Upload new entry')

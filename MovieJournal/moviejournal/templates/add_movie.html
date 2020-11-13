@@ -1,11 +1,11 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div>
+    <div class="form_container">
         <form action="#" method="POST" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
             
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4"> Add New Movie </legend>
+                <legend class="border-bottom mb-4 add_movie_title"> Add New Movie </legend>
                 <div class="form-row">
 
                     <div class="form-group col-md-8">
@@ -46,11 +46,12 @@
                 <div class="form-group">
                     {{ form.cover.label(class="form-control-label") }}
                     <br/>
-                    {{ form.cover(class="btn submit_btn") }}
+                    {{ form.cover(class="btn submit_btn)") }}
                 </div>
             </fieldset>
+
             <div class="form-group">
-                {{ form.submit(class="btn btn-primary") }}
+                {{ form.submit(class="btn my_button") }}
             </div>
 
         </form>          

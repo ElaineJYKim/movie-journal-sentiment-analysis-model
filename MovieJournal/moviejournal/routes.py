@@ -65,7 +65,8 @@ def model_predict(text):
 @app.route('/delete_journal/<int:movie_id>')
 def delete_journal(movie_id):
     
-    if MovieJournals.query.get(movie_id).entries is not None:
+    if len(MovieJournals.query.get(movie_id).entries) > 0:
+
         entries = MovieJournals.query.get(movie_id).entries
         
         for entry in entries:
@@ -77,4 +78,22 @@ def delete_journal(movie_id):
 
     db.session.commit()
 
-    return render_template('home.html', movies=MovieJournals)
+    return redirect(url_for("home"))
+
+@app.route('/delete_entries/<int:movie_id>')
+def delete_entries(movie_id):
+    
+    if len(MovieJournals.query.get(movie_id).entries) > 0:
+
+        entries = MovieJournals.query.get(movie_id).entries
+        
+        for entry in entries:
+            JournalEntry.query.filter_by(id=entry.id).delete()
+        
+        db.session.commit()
+
+    return redirect(url_for("journal", movie_id=movie_id))
+    
+    
+    
+    

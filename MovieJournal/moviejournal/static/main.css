@@ -12,11 +12,6 @@ html, body{
     font-weight: 400;
 }
 
-.container-fluid {
-    /* margin-left: 2rem;
-    margin-right: 2rem; */
-}
-
 .content {
     padding-top: 5rem;
 }
@@ -32,6 +27,7 @@ a, a:hover, a:focus, a:active {
     display: flex;
     flex-wrap: wrap;
     margin-top: 2rem;
+    justify-content: space-evenly;
 }
 
 .movie_card{
@@ -77,7 +73,7 @@ a, a:hover, a:focus, a:active {
 
 /* Journal */
 .journal_entries {
-    padding-top: 10rem;
+  margin-top: 3rem;
 }
 
 .journal-header {
@@ -96,24 +92,27 @@ a, a:hover, a:focus, a:active {
   #bright:hover{
     box-shadow: 0px 0px 120px -55px rgba(255, 51, 0, 0.5);
   }
-  
-  #tomb{
-    box-shadow: 0px 0px 150px -45px rgba(19, 160, 134, 0.6);
-    &:hover{
-      box-shadow: 0px 0px 120px -55px rgba(19, 160, 134, 0.6);
-    }
-  }
-  
-  #ave{
-    box-shadow: 0px 0px 150px -45px rgba(199,147,75, 0.7);
-    margin-bottom: 200px;
-    &:hover{
-      box-shadow: 0px 0px 120px -55px rgba(199,147,75, 0.7);
-    }
-  }
-
 
   .submit_btn {
     background-color: transparent;
     
   }
+
+
+/* journal */
+.journal_continaer{
+  display: flex;
+}
+.form_container {
+   margin-top: 2rem;
+  }
+
+.my_button {
+  /* background-color: rgba(255, 60, 0, 0.548); */
+  background-color: #ACC5FF;
+}
+
+.add_movie_title {
+  margin-bottom: 2rem !important;
+  font-weight: 500;
+}

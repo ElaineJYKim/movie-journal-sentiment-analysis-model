@@ -11,7 +11,8 @@
     </div>
   </div> -->
 
-    <div class="card mb-3" style="max-width: 540px;">
+  <div class="row" style="margin: 3rem">
+    <div class="col card mb-3" style="max-width: 540px; border:none;">
         <div class="row no-gutters">
           <div class="col-md-4">
             <img class="card-img" alt="..." src="{{ url_for('static', filename='uploads/'+movie.title) }}">
@@ -26,12 +27,10 @@
           </div>
         </div>
       </div>
-
-   <a href="{{ url_for('delete_journal', movie_id=movie.id )}}"><button type="button" class="btn btn-outline-danger btn-sm">Delete Journal</button></a>
     
-    <form style="width: 100%;" action="#" method="POST" enctype="multipart/form-data">
+    <form class="col" style="" action="#" method="POST" enctype="multipart/form-data">
         {{ form.hidden_tag() }}
-       <legend class="border-bottom mb-4"> New Entry </legend>
+       <!-- <legend class="border-bottom mb-4"> New Entry </legend> -->
             <div class="form-group">
                 {% if form.entry.errors %}
                     <div class="invalid-feedback">
@@ -40,15 +39,20 @@
                     {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.entry(class="form-control") }}
+                    {{ form.entry(class="form-control", style="height:210px") }}
                 {% endif %}
             </div>
             <div class="form-group">
-                {{ form.submit(class="btn btn-primary") }}
+                {{ form.submit(class="btn my_button") }}
             </div>
     </form>
+  </div>
 
-    <div class="journal_entries">
+    <a href="{{ url_for('delete_journal', movie_id=movie.id )}}"><button type="button" class="btn btn-outline-danger btn-sm">Delete Journal</button></a>
+    <a href="{{ url_for('delete_entries', movie_id=movie.id )}}"><button type="button" class="btn btn-outline-danger btn-sm">Delete Entries</button></a>
+
+
+    <div class="journal_entries border-top mb-4">
         {% for entry in entries %}
             {% if entry.sentiment == 2 %}
             <!-- Positive -->
