@@ -9,6 +9,8 @@ Final Model Used
 - Dataset: [Rotten Tomatos Movie Reviews](https://www.kaggle.com/c/sentiment-analysis-on-movie-reviews/data)
 - Bert Based Model: cased_L-12_H-768_A-12
 
+This model has an overall accuracy of 0.76. The macro accuracy for this particular model isn't especially better than the other models. However, it was choosen because it's precision for the different target labels were fairly balanced and because it's recall favored Positive and Negative entries. I thought having better accuracy for + and - enteries would be more valable since most people using this service would be opinionated to one particular sentiment.
+
 
 ## MovieJournal
 **Description**

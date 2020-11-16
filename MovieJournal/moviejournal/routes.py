@@ -59,7 +59,7 @@ def model_predict(text):
     pred_token_ids = map(lambda tids: tids +[0]*(app.config['MAX_SEQ_LEN']-len(tids)),pred_token_ids)
     pred_token_ids = np.array(list(pred_token_ids))
 
-    prediction = model.predict(pred_token_ids).argmax(axis=-1)[0]
+    prediction = model.predict(pred_token_ids).argmax(axis=1)[0]
     return prediction.item()
 
 @app.route('/delete_journal/<int:movie_id>')

@@ -53,8 +53,9 @@
 
 
     <div class="journal_entries border-top mb-4">
+      <!-- NOTICE: DATA LABELS WERE SWITCHED [0,1,2]->[2,1,0] -->
         {% for entry in entries %}
-            {% if entry.sentiment == 2 %}
+            {% if entry.sentiment == 0 %}
             <!-- Positive -->
                 <div class="card border-success mb-3 entry" style="">
                     <div class="card-body text-success">
