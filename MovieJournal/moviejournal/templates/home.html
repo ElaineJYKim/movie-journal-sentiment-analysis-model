@@ -2,13 +2,13 @@
 {% block content %}
 <!-- <div class="container mt-5"> -->
 <div>
-   
    <!-- <nav class="nav nav-light bg-light">
       <a class="navbar-brand">Navbar</a>
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       </form>
     </nav> -->
+   
 
    <div class="movies_container">
       {% for movie in movies.query.order_by(movies.time.desc()).all() %}
